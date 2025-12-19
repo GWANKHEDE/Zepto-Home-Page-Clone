@@ -43,12 +43,14 @@ A responsive clone of the Zepto home screen with add-to-cart functionality and a
 
 ### Home Screen
 <!-- Add your screenshot here: local path or URL -->
-![Home Screen](./screenshots/home.png)
+<img width="1919" height="1021" alt="image" src="https://github.com/user-attachments/assets/9d0c9d71-b67b-49d6-bc14-8f92fb626923" />
+
 *Home screen showing categories and product grid*
 
 ### Cart Open
 <!-- Add your screenshot here: local path or URL -->
-![Cart Open](./screenshots/cart.png)
+<img width="1916" height="1010" alt="image" src="https://github.com/user-attachments/assets/845df817-4a24-44ee-bd56-5d2b5b9320b2" />
+
 *Cart sidebar open with items added*
 
 ## Folder Structure
