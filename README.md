@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zepto Home Page Clone
 
-## Getting Started
+A responsive clone of the Zepto home screen with add-to-cart functionality and a cart sidebar sheet, built with Next.js (App Router), TypeScript, Redux Toolkit, and TanStack Query.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Home Screen**: Header with Logo, Location, Search Bar, and Cart Icon. Horizontal Category Tabs and Product Grid (fetched from API).
+- **Add to Cart**: Add products, increment/decrement quantity, and persistent cart state.
+- **My Cart Sheet**: Sidebar showing items, subtotal, and quantity controls.
+- **Tech Stack**: Next.js 14, Tailwind CSS, Redux Toolkit, TanStack Query, Shadcn UI.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup Guide
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd zepto-clone
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Open in browser**:
+   Navigate to [http://localhost:3000](http://localhost:3000).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## State Management Choice
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Redux Toolkit** was chosen for cart state management to demonstrate robust global state handling suitable for e-commerce.
 
-## Deploy on Vercel
+- **Store**: Configured in `src/lib/store/store.ts`.
+- **Slice**: `cartSlice.ts` handles `addToCart`, `removeFromCart`, `updateQuantity`, and `toggleCart`.
+- **Persistence**: Implemented via a subscription model in `src/components/providers.tsx` which syncs Redux state with `localStorage`.
+- **Selectors/Dispatch**: Typed hooks (`useAppSelector`, `useAppDispatch`) ensure type safety across the application.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Screenshots
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Home Screen
+<!-- Add your screenshot here: local path or URL -->
+![Home Screen](./screenshots/home.png)
+*Home screen showing categories and product grid*
+
+### Cart Open
+<!-- Add your screenshot here: local path or URL -->
+![Cart Open](./screenshots/cart.png)
+*Cart sidebar open with items added*
+
+## Folder Structure
+
+The project follows a feature-based architecture within the `src/` directory:
+
+*   `src/app/`: The main entry point. `page.tsx` is the home page.
+*   `src/components/`:
+    *   `features/`: Contains the core logic components (cart, product, category).
+    *   `layout/`: The Header and site-wide frames.
+    *   `ui/`: Reusable small blocks (buttons, inputs) from shadcn.
+*   `src/lib/`:
+    *   `api/`: Functions to interact with FakeStoreAPI.
+    *   `store/`: Redux setup and logic.
